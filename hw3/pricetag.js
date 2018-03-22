@@ -1,22 +1,27 @@
 var appleName = 'Яблоки украинские';
 var orangeName = 'Апельсины, Испания';
 
-var applePrice = 12.50;
-var orangePrice = 12.50;
-var discount = 15;
-var margin = 15;
-var applePriceDiscount;
-var orangePriceMargin;
+var applePrice;       // Яблоки Цена
+var applePriceTag;    // Яблоки Ценник 
+var orangePrice;      // Апельсины Цена
+var orangePriceTag;   // Апельсины Ценник 
+var margin;           // Наценка магазина
+var discount;         // Скидка
 
-applePriceDiscount = (applePrice - applePrice * (discount / 100)) * 100;
-orangePriceMargin = (orangePrice + orangePrice * (margin / 100)) * 100;
+applePrice = 12.50;
+orangePrice = 12.50;
+discount = 15;
+margin = 15;
 
-applePriceDiscount = Math.round(applePriceDiscount) / 100;
-orangePriceMargin = Math.round(orangePriceMargin) / 100;
+applePriceTag = (applePrice - applePrice * (discount / 100)) * 100;
+orangePriceTag = (orangePrice + orangePrice * (margin / 100)) * 100;
 
-var labelApple = `'${appleName}.\nцена: ${applePriceDiscount} грн'`;
+applePriceTag = Math.round(applePriceTag) / 100;
+orangePriceTag = Math.round(orangePriceTag) / 100;
+
+var labelApple = `'${appleName}.\nцена: ${applePriceTag} грн'`;
 var labelOrange = `'${orangeName}.
-цена: ${orangePriceMargin} грн'`;
+цена: ${orangePriceTag} грн'`;
 
 console.log(labelApple);
 console.log(labelOrange);
