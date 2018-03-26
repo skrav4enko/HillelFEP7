@@ -1,6 +1,7 @@
 var string;
 
-string = prompt('Введите строку', 'Hello world');
+string = 'Введите строку';
+// string = prompt('Введите строку', 'Hello world');
 
 if (string === '') {
   console.log('Вы ничего не ввели. Строка пуста.')
