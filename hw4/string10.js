@@ -10,5 +10,6 @@ if (string === '') {
     console.log(string[i]);
   }
 } else {
-  console.log(string.substring(0,7) + string.substr(10));
+  console.log(string.substring(0,7));
+  console.log(string.substr(10));
 }
