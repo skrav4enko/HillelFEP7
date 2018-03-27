@@ -11,5 +11,5 @@ if (string === '') {
   }
 } else {
   console.log(string.substring(0,7));
-  console.log(string.substr(10));
+  console.log(string.substr(9));
 }
