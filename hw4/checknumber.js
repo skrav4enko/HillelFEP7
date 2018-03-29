@@ -5,7 +5,6 @@ function checkNumber(number) {
   // Создаем массив для сохранение результатов проверки
   let result = [];
   
-  console.log(Math.sqrt(number))
   // Проверка на простое число
   if (number < 2){
     result.push(false);

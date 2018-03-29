@@ -1,20 +1,34 @@
-function res(a, b, result, carry, base) {
-  if(a.length == 0 && b.length == 0 && !carry)
+let x = '878945164511195195159151911981';
+let y = '656294157127617291451897417218';
+
+// Функция проверки аргументов на ноль
+function sumStringNumber(a, b) {
+  if (a === '0' && b === '0') {
+    return '0';
+  }
+  // обращаемся к функции сложения, передаем аргументы приводя их к массиву
+  return add(a.split(''), b.split(''));
+}
+
+// Функция сложения каждого элемента массива
+function add(a, b, result = '', carry = 0) {
+  // Проверка, что массив еще с элементами, если нет то выводим результат
+  if (!(a.length || b.length || carry)) {
     return result;
+  }
+  // Убираем с массивов последний элемент, если его нет возвращаем 0, приводим к числу
+  let left = parseInt(a.pop() || '0', 10);
+  let right = parseInt(b.pop() || '0', 10);
 
-  //берем младшие разряды
-  var left = parseInt(a.pop() || '0', 10);
-  var right = parseInt(b.pop() || '0', 10);
+  // Промежуточный результат двух элементов и десятка (если был)
+  carry = carry + left + right;
+  // Остаток от кратности 10 и конкатенируем с результату 
+  result = carry % 10 + result;
+  // Проверка промежуточного результата ( >= 10 - true, иначе false)
+  carry = carry > 9;
 
-  //складываем и добавляем перебор с прошлой итерации
-  var l = left + right + (carry || 0);
-
-  //вызываем для следующих разрядов, правильно вычисляя добавленную цифру и цифру переноса
-  return res(a, b, l % base + (result || ""), Math.floor(l/base), base);
+  // Повторяем цикл
+  return add(a, b, result, carry);
 }
 
-function add(a, b) {
-  return res(a.toString().split(""), b.toString().split(""), "","",10).toString();
-}
-
-console.log(add(5,6));
+console.log(sumStringNumber(x, y));
