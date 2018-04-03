@@ -1,24 +1,22 @@
-
-
 let password;
 let number;
 do {
-  password = prompt('Введите пароль:', 'TcSf12y');
+  password = prompt(`Введите пароль.\n\nПодсказка: Цифры и буквы, от 6 до 20 символов`, 'TcSf12y');
 } while (validatePassword(password) === false);
 
 do {
-  number = prompt('Введите любое число', '23');
+  number = prompt(`Введите любое число.\n\nПодсказка: Число - или простой, или четное, или кратное 10`, '23');
 } while (checkNumber(number) === false);
 
 // // Сложение чисел введеных пользователем
-let term1 = prompt('Введите первое число', '878945164511195195159151911981');
-let term2 = prompt('Введите первое число', '656294157127617291451897417218');
+let term1 = prompt(`Сумма больших чисел.\n\nВведите Первое число:`, '878945164511195195159151911981');
+let term2 = prompt(`Сумма больших чисел.\n\nВведите Второе число:`, '656294157127617291451897417218');
 sumStringNumber(term1, term2);
 
 // Функция проверки пароля
 function validatePassword(pass) {
     
-  console.log(pass + ' length: ' + pass.length); // проверочный вывод строки и ее длины
+  // console.log(pass + ' length: ' + pass.length); // проверочный вывод строки и ее длины
   
   function checkPassLength(pass) {
     let result;
