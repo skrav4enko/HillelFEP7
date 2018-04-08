@@ -4,25 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/style.css">
-  <!-- <script  src="./js/script.js" async></script> -->
+  <script  src="./js/script.js" async></script>
   <title>FEP Layout</title>
 </head>
 <body>
   <div class="container">
-    <header>
-      <h3>Header</h3>
+    <header class="header">
+      <a class="brand_name" href="#">Brand Name</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+      </button>
     </header>
-    <nav class="sidebar">
+    <nav class="nav_main">
       <ul>
-        <li><a href="#">Menu 1</a></li>
+        <li><a href="#">Menu 1 Active</a></li>
         <li><a href="#">Menu 2</a></li>
         <li><a href="#">Menu 3</a></li>
         <li><a href="#">Menu 4</a></li>
         <li><a href="#">Menu 5</a></li>
       </ul>
     </nav>
-    <section class="content">
+    <div class="content">
       <div class="article">
         <h1>Title of Article</h1>
         <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, inventore nulla fuga dignissimos, aperiam natus amet explicabo ratione iusto nam ullam. Eum impedit eius adipisci, a aut, blanditiis iusto quia repellendus maiores tempore sint provident architecto iure placeat dolorem earum! In facilis doloribus tenetur iusto iure doloremque hic praesentium nobis? </p>
@@ -43,9 +47,22 @@
         <h1>Title of Article</h1>
         <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, inventore nulla fuga dignissimos, aperiam natus amet explicabo ratione iusto nam ullam. Eum impedit eius adipisci, a aut, blanditiis iusto quia repellendus maiores tempore sint provident architecto iure placeat dolorem earum! In facilis doloribus tenetur iusto iure doloremque hic praesentium nobis? </p>
       </div>
-    </section>
-    <footer>
+      <div class="article">
+        <h1>Title of Article</h1>
+        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, inventore nulla fuga dignissimos, aperiam natus amet explicabo ratione iusto nam ullam. Eum impedit eius adipisci, a aut, blanditiis iusto quia repellendus maiores tempore sint provident architecto iure placeat dolorem earum! In facilis doloribus tenetur iusto iure doloremque hic praesentium nobis? </p>
+      </div>
+      <div class="article">
+        <h1>Title of Article</h1>
+        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, inventore nulla fuga dignissimos, aperiam natus amet explicabo ratione iusto nam ullam. Eum impedit eius adipisci, a aut, blanditiis iusto quia repellendus maiores tempore sint provident architecto iure placeat dolorem earum! In facilis doloribus tenetur iusto iure doloremque hic praesentium nobis? </p>
+      </div>
+      <div class="article">
+        <h1>Title of Article</h1>
+        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, inventore nulla fuga dignissimos, aperiam natus amet explicabo ratione iusto nam ullam. Eum impedit eius adipisci, a aut, blanditiis iusto quia repellendus maiores tempore sint provident architecto iure placeat dolorem earum! In facilis doloribus tenetur iusto iure doloremque hic praesentium nobis? </p>
+      </div>
+    </div>
+    <footer class="footer">
       <h3>Footer</h3>
+      <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     </footer>
   </div>
 </body>
