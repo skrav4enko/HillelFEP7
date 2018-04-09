@@ -1,7 +1,5 @@
-
+// Входные данные, предпологаю что они отсортированы одинаково
 let recipe = {
-  apple: 500,
-  milk: 100,
   flour: 500,
   sugar: 200,
   eggs: 1
@@ -13,29 +11,26 @@ let avalible = {
   eggs: 5,
   milk: 200
 };
-
+// Вызов функции с передачей объектов
 cakes(recipe, avalible);
 
 function cakes(recipe, avalible) {
   let result = [];
   let number;
 
-  // console.log(Object.keys(recipe).length);
-  // console.log(Object.keys(avalible).length);
+  // Проверяю длину объектов, если длина в рецепте больше чем доступно, то false
   if (Object.keys(recipe).length <= Object.keys(avalible).length) {
-    for (let key in recipe, avalible) { 
-      // console.log(recipe[key]);
-      // console.log(avalible[key]);
+    // Прохожу по каждому ключу и выполняю вычисление
+    for (let key of avalible, recipe) { 
+      // Округляю вычисление к нижнему целому
       number = Math.floor(avalible[key] / recipe[key]);
-      // console.log(number);
 
       if (!isNaN(number)) {
         result.push(number)
       }
     }
-    // console.log(result);
+    // Возвращаю минимальный результат из массива результатов
     result = Math.min(...result);
-    // console.log(result);
   } else {
     result = 0;
   }
