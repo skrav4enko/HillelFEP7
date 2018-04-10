@@ -18,7 +18,7 @@ function tickets(persons) {
       cashbox += banknote;
       result = "YES";
     } else {
-      result = "NO";
+      result = "NO"; break;
     }
   }
   return console.log(result)
