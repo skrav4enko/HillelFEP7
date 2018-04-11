@@ -1,6 +1,7 @@
 let startPeriod = 2000;
 let endPeriod = 2010;
 
+// База студентов с 2000 по 2015 год
 let students = [{
   id: 1,
   name: "Joscelin",
@@ -53,13 +54,17 @@ let students = [{
   endYear: 2011
 }]
 
+// Первый пункт задачи
 showStudentsByPeriod.call(students);
+
+// Второй пункт задачи
+countStudentsByPeriod.call(students);
+
 
 function showStudentsByPeriod() {
   let result = [];
 
   for (let i = 0; i < students.length; i++) {
-    // this = students[i];
     
     if (this[i].startYear >= startPeriod && this[i].endYear <= endPeriod) {
       result.push(this[i].name);
@@ -72,8 +77,22 @@ function showStudentsByPeriod() {
 }
 
 
-// countStudentsByPeriod.call(students);
+function countStudentsByPeriod() {
+  let period = endPeriod - startPeriod;
+  let counter;
+  let result = [];
 
-// function countStudentsByPeriod() {
-  
-// }
+  for (let i = 0; i <= period; i++) {
+    let year = startPeriod + i;
+    counter = 0;
+
+    for (let i = 0; i < students.length; i++) {
+
+      if ( year >= this[i].startYear && year <= this[i].endYear) {
+      counter++;
+      }
+    }
+    result.push({year, counter});
+  }
+  console.log(result);
+}
