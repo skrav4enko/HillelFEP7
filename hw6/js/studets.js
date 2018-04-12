@@ -94,5 +94,13 @@ function countStudentsByPeriod() {
     }
     result.push({year, counter});
   }
-  console.log(result);
+
+  Array.prototype.hasMax = function(attrib) {
+    return this.reduce(function(prev, curr){ 
+        return prev[attrib] > curr[attrib] ? prev : curr; 
+    });
+ }
+  console.log(result.hasMax('counter'))
+
+  // console.log(result);
 }
