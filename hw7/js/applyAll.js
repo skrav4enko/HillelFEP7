@@ -9,5 +9,16 @@ function sum() {
 
 }
 
-sum(1,2,3);
+// sum(1,2,3);
 
+function mul() {
+  let result = 1;
+  for (let i = 0; i < arguments.length; i++) {
+    const element = arguments[i];
+    result = result * element;
+  }
+
+  return console.log(result);
+}
+
+mul(1,2,3,4);
