@@ -8,7 +8,34 @@
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+  <div class="container">
+    <header>
+      <div id="clock-area">
 
+      </div>
+      <div id="window-size">
+
+      </div>
+    </header>
+    <section>
+      <div class="input">
+        <div class="input-row">
+          <label for="row">Number of rows you want</label>
+          <input id='row' type="number" value="0" min="0">
+        </div>
+        <div class="input-column">
+          <label for="column">Number of columns you want</label>
+          <input id='column' type="number" value="0" min="0">
+        </div>
+        <div>
+          <button type="submit">Draw Table</button>
+        </div>
+      </div>
+      <div id="table-area">
+    
+      </div>
+    </section>
+  </div>
 
 <!-- script -->
 <script src="./js/table.js"></script>
