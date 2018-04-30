@@ -20,4 +20,8 @@ window.onload = function() {
       return number;
     };
   };
+
+  // function timeSpent() {
+    
+  // }
 };

@@ -1,17 +1,16 @@
-let inputRowNumber = document.querySelector('#row');
-let inputColumnNumber = document.querySelector('#column');
+let inputRowNumber = document.querySelector('#row-input');
+let inputColumnNumber = document.querySelector('#column-input');
 let btn = document.querySelector('button')
 
-btn.addEventListener('click', function () {
-  console.log(`Row: ${inputRowNumber.value} and Column: ${inputColumnNumber.value}`);
-  createTable();
-});
+btn.addEventListener('click', createTable);
 
 function createTable() {
+  // console.log(`Row: ${inputRowNumber.value} and Column: ${inputColumnNumber.value}`);
   let tableArea = document.querySelector('#table-area');
 
+  // Проверка на существующую таблицу
   while (tableArea.firstChild) {
-    tableArea.removeChild(tableArea.firstChild);
+    tableArea.removeChild(tableArea.firstChild); // удалить при обнаружении таблицы
   }
 
   let table = document.createElement('table');
@@ -23,6 +22,27 @@ function createTable() {
       cell.appendChild(document.createTextNode(`Cell ${cellNumber++}`));
     }
   }
-  tableArea.appendChild(table).classList.add('table', 'table-bordered');
-  console.log(document.querySelector('table'));
+  tableArea.appendChild(table).classList.add('table', 'table-striped', 'table-bordered');
+  // console.log(document.querySelector('table'));
+
+  showCellNumber();
+  
+  function showCellNumber() {
+    let cells = tableArea.getElementsByTagName("td"); // 
+    
+    for(let i = 0; i < cells.length; i++){
+        // Cell Object
+        let cell = cells[i];
+        // Track with onclick
+        cell.onclick = function(){
+            let cellIndex  = this.cellIndex + 1;  
+    
+            let rowIndex = this.parentNode.rowIndex + 1;
+            
+            alert("cell: " + cellIndex + " / row: " + rowIndex );
+        }
+    }
+  }
 }
+
+

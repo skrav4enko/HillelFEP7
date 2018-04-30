@@ -19,18 +19,18 @@
   </header>
   <div class="container">
     <section class="starter-template">
-      <form>
-        <div class="form-group">
-          <label for="row">Number of rows you want</label>
-          <input id='row' type="number" class="form-control" value="0" min="0">
+      <form class="row">
+        <div class="form-group col">
+          <label for="row-input">Number of <strong>rows</strong> you want</label>
+          <input id='row-input' type="number" class="form-control" value="0" min="0">
         </div>
-        <div class="form-group">
-          <label for="column">Number of columns you want</label>
-          <input id='column' type="number" class="form-control" value="0" min="0">
+        <div class="form-group col">
+          <label for="column-input">Number of <strong>columns</strong> you want</label>
+          <input id='column-input' type="number" class="form-control" value="0" min="0">
         </div>
       </form>
-      <button type="submit" class="btn btn-primary">Draw Table</button>
-      <div id="table-area" class="mt-3">
+      <button type="submit" class="btn btn-primary mb-3">Draw Table</button>
+      <div id="table-area">
       </div>
     </section>
   </div>
