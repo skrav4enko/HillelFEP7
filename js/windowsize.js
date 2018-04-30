@@ -1,16 +1,14 @@
+
 let windowSizeArea = document.querySelector('#window-size');
+showWindowSize();
 
-resize();
-window.onresize = resize;
-
-// if () {
-  
-// }
+window.addEventListener("resize", resize);
 
 function resize() {
-  let width=window.innerWidth; 
-  let height=window.innerHeight;
+  clearTimeout(window.resizeEnd);
+  window.resizeEnd = setTimeout(showWindowSize, 2000) 
+}
 
-  windowSizeArea.innerHTML = `${width}px x ${height}px`;
-  // console.log(`width ${width}, height ${height}`);
+function showWindowSize() {
+  windowSizeArea.innerHTML = `${window.innerWidth} x ${window.innerHeight} px`;
 }

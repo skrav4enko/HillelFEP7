@@ -1,27 +1,31 @@
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
+  background: #f3f3f3;
 }
-
-header {
+.starter-template {
+  padding: 1rem 0rem;
+  /* text-align: center; */
+}
+/* header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between; 
-}
+} */
 
 #clock-area, #window-size {
-  font-size: 3em;
+  font-size: 1.5em;
 }
 
 /* table {
   border-collapse: collapse;
 } */
 
-table, td {
+/* table, td {
   border: 1px solid #333;
-}
+} */
 
-td {
+/* td {
   padding: 5px;
   text-align: center;
   background: #ccc;
-}
+} */

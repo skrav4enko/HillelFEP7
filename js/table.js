@@ -23,6 +23,6 @@ function createTable() {
       cell.appendChild(document.createTextNode(`Cell ${cellNumber++}`));
     }
   }
-  tableArea.appendChild(table);
+  tableArea.appendChild(table).classList.add('table', 'table-bordered');
   console.log(document.querySelector('table'));
 }
