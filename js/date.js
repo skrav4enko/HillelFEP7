@@ -2,6 +2,7 @@
 window.onload = function() {
 
   let clockArea = document.querySelector('#clock-area');
+  
   clock();
 
   function clock() {
@@ -10,9 +11,14 @@ window.onload = function() {
     let minutes = time.getMinutes();
     let seconds = time.getSeconds();
     
-    clockArea.innerHTML = `${format(hours)}: ${format(minutes)}: ${format(seconds)}`;
     let period = setTimeout(clock, 1000);
-  
+    
+    showClock();
+    
+    function showClock() {
+      clockArea.innerHTML = `${format(hours)}: ${format(minutes)}: ${format(seconds)}`;
+    }
+
     function format(number) {
       if (number < 10) {
         number = '0' + number;
@@ -20,6 +26,9 @@ window.onload = function() {
       return number;
     };
   };
+
+  
+
 
   // function timeSpent() {
     

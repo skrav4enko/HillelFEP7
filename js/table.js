@@ -10,7 +10,7 @@ function createTable() {
 
   // Проверка на существующую таблицу
   while (tableArea.firstChild) {
-    tableArea.removeChild(tableArea.firstChild); // удалить при обнаружении таблицы
+    tableArea.removeChild(tableArea.firstChild); // удалить при обнаружении
   }
 
   let table = document.createElement('table');
@@ -28,19 +28,15 @@ function createTable() {
   showCellNumber();
   
   function showCellNumber() {
-    let cells = tableArea.getElementsByTagName("td"); // 
+    let cells = tableArea.getElementsByTagName("td");
     
     for(let i = 0; i < cells.length; i++){
-        // Cell Object
-        let cell = cells[i];
-        // Track with onclick
-        cell.onclick = function(){
-            let cellIndex  = this.cellIndex + 1;  
-    
-            let rowIndex = this.parentNode.rowIndex + 1;
-            
-            alert("cell: " + cellIndex + " / row: " + rowIndex );
-        }
+      // Cell Object
+      let cell = cells[i];
+      // Track with onclick
+      cell.onclick = function(){
+        alert(`Index of cell is: ${this.cellIndex + 1}:${this.parentNode.rowIndex + 1}`);
+      }
     }
   }
 }
