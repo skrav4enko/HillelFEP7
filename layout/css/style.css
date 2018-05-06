@@ -30,11 +30,16 @@
   color:#8B8987;
   margin: 10px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 .nav_button {
-  margin-left: auto;
   font-size: 30px;
+  color: #ba1000;
+  padding: 5px;
+  background: #fff;
+  border: none;
+  text-decoration: none;
 }
 .nav_header {
   display: none;

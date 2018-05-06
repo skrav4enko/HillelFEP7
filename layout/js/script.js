@@ -14,3 +14,6 @@ function topFunction() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 }
+
+let nav_button = document.querySelector('#menu_button');
+nav_button.addEventListener('click', () => {document.querySelector('.sidebar').style.display = 'block'});
