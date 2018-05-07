@@ -1,6 +1,6 @@
 let inputRowNumber = document.querySelector('#row-input');
 let inputColumnNumber = document.querySelector('#column-input');
-let btn = document.querySelector('button')
+let btn = document.querySelector('button');
 
 btn.addEventListener('click', createTable);
 
@@ -28,7 +28,7 @@ function createTable() {
   showCellNumber();
   
   function showCellNumber() {
-    let cells = tableArea.getElementsByTagName("td");
+    let cells = tableArea.getElementsByTagName('td');
     
     for(let i = 0; i < cells.length; i++){
       // Cell Object
@@ -36,7 +36,7 @@ function createTable() {
       // Track with onclick
       cell.onclick = function(){
         alert(`Index of cell is: ${this.cellIndex + 1}:${this.parentNode.rowIndex + 1}`);
-      }
+      };
     }
   }
 }

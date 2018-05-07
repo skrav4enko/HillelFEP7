@@ -1,7 +1,7 @@
 
-window.onload = function() {
-
-  let clockArea = document.querySelector('#clock-area');
+document.addEventListener('DOMContentLoaded', () => {
+  
+  const clockArea = document.querySelector('#clock-area');
   
   clock();
 
@@ -11,7 +11,7 @@ window.onload = function() {
     let minutes = time.getMinutes();
     let seconds = time.getSeconds();
     
-    let period = setTimeout(clock, 1000);
+    setTimeout(clock, 1000);
     
     showClock();
     
@@ -24,13 +24,6 @@ window.onload = function() {
         number = '0' + number;
       }
       return number;
-    };
-  };
-
-  
-
-
-  // function timeSpent() {
-    
-  // }
-};
+    }
+  }
+});
