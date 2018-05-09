@@ -12,8 +12,8 @@
   /* grid-template-rows: 60px auto auto 30px; */
   grid-template-areas:
     'header'
-    'sidebar'
     'content'
+    'sidebar'
     'footer';
   background-color: #fff;
   color: #333;
@@ -29,11 +29,24 @@
   background-color: #fff;
   color:#8B8987;
   margin: 10px;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-areas:
+    'brand_logo toggleMenu' 
+    'nav_header nav_header';
   align-items: center;
+  /* flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between; */
 }
-.nav_button {
+
+.brand_logo {
+  max-width: 150px;
+  grid-area: brand_logo;
+  justify-self: start;
+}
+.toggleMenu {
+  grid-area: toggleMenu;
+  justify-self: end;
   font-size: 30px;
   color: #ba1000;
   padding: 5px;
@@ -42,11 +55,16 @@
   text-decoration: none;
 }
 .nav_header {
+  grid-area: nav_header;
   display: none;
 }
+.showMenu{
+  display: block;
+}
 .nav_header li {
-  display: inline-block;
-  padding: 0 10px;
+  display: block;
+  padding: 10px;
+  text-align: center;
 }
 .nav_header a {
   display: block;
@@ -61,7 +79,6 @@
 
 .sidebar {
   grid-area: sidebar;
-  display: none;
   background:#eee;
   text-align: center;
 }
@@ -165,12 +182,7 @@
   grid-area: footer;
   background-color: #fbfafa;
   color:#9d9d9d;
-  line-height: 20px;
   padding: 10px;
-  position: fixed;
-  width: 100%;
-  left: 0;
-  bottom: 0;
 }
 
 /* BUTTON TO TOP */
@@ -184,7 +196,7 @@
   font-size: 14px;
   border: none;
   outline: none;
-  background-color: red;
+  background-color: #ba1000;
   color: white;
   cursor: pointer;
   padding: 5px;
@@ -206,13 +218,23 @@
     'footer footer';
   }
   /* HEADER */
-  .nav_button {
+  .header {
+    flex-direction: row;
+    flex: 2 auto;
+    grid-template-areas:
+    'brand_logo nav_header'
+  }
+  .toggleMenu {
     display: none;
   }
   .nav_header {
     display: block;
+    justify-self: end;
   }
-
+  .nav_header li {
+    display: inline-block;
+    padding: 0 10px;
+  }
   /* SIDEBAR */
   .sidebar {
     display: block;
@@ -230,5 +252,9 @@
 
   /* FOOTER */
   .footer {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
   }
 }
