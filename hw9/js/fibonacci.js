@@ -1,17 +1,24 @@
 
-function fibonacci() {
-  let number_1 = 0;
-  let number_2 = 1;
-  let temp_number;
-  for (let i = 0; i < arguments[0]; i++) {
-    
+function fibonacci(num) {
+  let fibArr = [0,1];
 
-    temp_number = number_1 + number_2;
-    number_1 = number_2;
-    number_2 = temp_number;
+  if (num < 0){
+    return console.log(`Wrong: number must be >= 0`)
+  }
+  if (num <= 1) {
+    return console.log(fibArr[num]);
   }
 
-  return console.log(temp_number);
+  for (let i = 2; i <= num; i++) {
+    fibArr[i] = fibArr[i - 1] + fibArr[i - 2];
+  }
+  // console.log(fibArr);
+  return console.log(fibArr[num]);
 }
 
+fibonacci(-2);
+fibonacci(0);
+fibonacci(1);
+fibonacci(3);
 fibonacci(6);
+fibonacci(27);
