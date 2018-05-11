@@ -1,15 +1,11 @@
 let numbers;
 
 function sum() {
-  let sumResult = numbers.reduce( (total, num) => total + num);
-
-  return sumResult;
+  return numbers.reduce( (total, num) => total + num);
 }
 
 function mul() {
-  let mulResult = numbers.reduce( (total, num) => total * num);
-
-  return mulResult;
+  return numbers.reduce( (total, num) => total * num);
 }
 
 function showResult (result) {
@@ -18,8 +14,8 @@ function showResult (result) {
 
 function applyAll (func) {
   numbers = [].slice.call(arguments, 1);
-  console.log(func);
-  console.log(numbers);
+  // console.log(func);
+  // console.log(numbers);
   showResult(func.apply(this, numbers));
 }
 
