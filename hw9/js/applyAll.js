@@ -1,24 +1,27 @@
+let numbers;
+
 function sum() {
-  let result = 0;
-  for (let i = 0; i < arguments.length; i++) {
-    let element = arguments[i];
-    result += element;
-  }
+  let sumResult = numbers.reduce( (total, num) => total + num);
 
-  return console.log(result);
-
+  return sumResult;
 }
-
-// sum(1,2,3);
 
 function mul() {
-  let result = 1;
-  for (let i = 0; i < arguments.length; i++) {
-    const element = arguments[i];
-    result = result * element;
-  }
+  let mulResult = numbers.reduce( (total, num) => total * num);
 
-  return console.log(result);
+  return mulResult;
 }
 
-mul(1,2,3,4);
+function showResult (result) {
+  console.log(result);
+}
+
+function applyAll (func) {
+  numbers = [].slice.call(arguments, 1);
+  console.log(func);
+  console.log(numbers);
+  showResult(func.apply(this, numbers));
+}
+
+applyAll(sum, 1, 2, 3);
+applyAll(mul, 1, 2, 3, 4);
