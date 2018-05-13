@@ -3,12 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
   
   const clockArea = document.querySelector('#clock-area');
   const timerArea = document.querySelector('#timer-area');
-
-  let date = new Date();
+  // console.log(clockArea);
+  // console.log(timerArea);
   
-  clock();
-  // spentTime();
+  let clockId = setInterval(clock, 1000);
 
+  // Clock
   function clock() {
     let time = new Date();
     let hours = time.getHours();
@@ -31,27 +31,57 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function spentTime() {
-    let currentDate = new Date();
+  // Timer
+  let currentDate = new Date();
 
-    let spentTime = currentDate - date;
-    let hours = spentTime.getHours();
-    let minutes = spentTime.getMinutes();
-    let seconds = spentTime.getSeconds();
+  let spentTimeID = setInterval(spentTimer, 1000);
 
-    setTimeout(spentTime, 1000);
+  function spentTimer() {
+    let timer = updateTimer(currentDate);
     
     showClock();
-    
+  
     function showClock() {
-      timerArea.innerHTML = `You spent ${format(hours)}: ${format(minutes)}: ${format(seconds)} on this site`;
+      // console.log(`You spent ${format(timer.hours)}: ${format(timer.minutes)}: ${format(timer.seconds)} on this site`);
+      timerArea.innerHTML = `${format(timer.hours)}: ${format(timer.minutes)}: ${format(timer.seconds)}`;
     }
-
+  
     function format(number) {
       if (number < 10) {
         number = '0' + number;
       }
       return number;
+    }
+  }
+
+  function updateTimer(currentDate){
+    let spentTimer = new Date() - currentDate;
+
+    return {
+      'hours': Math.floor( (spentTimer/(1000*60*60)) % 24 ),
+      'minutes': Math.floor( (spentTimer/1000/60) % 60 ),
+      'seconds': Math.floor( (spentTimer/1000) % 60 ),
+      'total' : spentTimer
+    };
+  }
+  // console.log(spentTimeID);
+
+  timerArea.addEventListener('mouseover', pauseSpentTimer);
+  timerArea.addEventListener('mouseout', startSpentTimer);
+  document.addEventListener('keydown', setSpentTimerToZero);
+  function startSpentTimer(e) {
+    if (e.target) {
+      spentTimeID = setInterval(spentTimer, 1000);
+    }
+  }
+  function pauseSpentTimer(e) {
+    if (e.target) {
+      clearInterval(spentTimeID);
+    }
+  }
+  function setSpentTimerToZero(e) {
+    if (e.keyCode === 27) {
+      currentDate = new Date();
     }
   }
 });
