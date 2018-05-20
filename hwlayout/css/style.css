@@ -56,7 +56,6 @@ body {
 
 #main {
   grid-area: main;
-  margin-bottom: 30px;
 }
 
 /* FOOTER */
@@ -76,6 +75,9 @@ body {
   }
   #sidebar ul {
     text-align: left;
+  }
+  #main {
+    margin-bottom: 30px;
   }
   #footer {
     position: fixed;

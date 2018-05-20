@@ -20,12 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
     <div class="form-group col">
       <label for="row-input">Number of
         <strong>rows</strong> you want</label>
-      <input id='row-input' type="number" class="form-control" value="1" min="0">
+      <input id='row-input' type="number" class="form-control" min="0">
     </div>
     <div class="form-group col">
       <label for="column-input">Number of
         <strong>columns</strong> you want</label>
-      <input id='column-input' type="number" class="form-control" value="1" min="0">
+      <input id='column-input' type="number" class="form-control" min="0">
     </div>
     </form>
     <button type="submit" class="btn btn-primary mb-3">Draw Table</button>
@@ -58,8 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
       tableArea.appendChild(table).classList.add('table', 'table-striped', 'table-bordered');
-      inputRowNumber.value = 1;
-      inputColumnNumber.value = 1;
+      inputRowNumber.value = '';
+      inputColumnNumber.value = '';
       // console.log(document.querySelector('table'));
 
       showCellNumber();
