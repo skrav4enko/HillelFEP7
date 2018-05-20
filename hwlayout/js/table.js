@@ -58,6 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
       tableArea.appendChild(table).classList.add('table', 'table-striped', 'table-bordered');
+      inputRowNumber.value = 1;
+      inputColumnNumber.value = 1;
       // console.log(document.querySelector('table'));
 
       showCellNumber();
