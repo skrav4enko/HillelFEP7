@@ -12,7 +12,7 @@
 
 body {
   display: grid;
-  grid-template-areas: 'header' 'main' 'sidebar' 'footer';
+  grid-template-areas: "header" "main" "sidebar" "footer";
   /* grid-gap: 10px; */
   font-family: Arial, Helvetica, sans-serif;
   background: #f5f5f5;
@@ -25,20 +25,32 @@ body {
   font-size: 1.2em;
   background: var(--p-color);
 }
+#forecast {
+  display: flex;
+  flex-wrap: wrap;
+}
+#searchCity {
+}
+#getCity {
+  background: var(--p-color);
+  color: var(--p-text);
+  padding: 2px 5px;
+  border: none;
+}
+#getCity:hover {
+  background: var(--p-light);
+}
 
 /* SIDEBAR */
 
 #sidebar {
   grid-area: sidebar;
-  
 }
-
 #sidebar ul {
   list-style-type: none;
   text-align: center;
   margin: 10px;
 }
-
 #sidebar li a {
   display: block;
   color: white;
@@ -46,10 +58,8 @@ body {
   text-decoration: none;
   background-color: var(--p-light);
 }
-
 #sidebar li a:hover {
   background-color: var(--p-dark);
-  /* padding-left: 15px; */
 }
 
 /* MAIN */
@@ -57,20 +67,109 @@ body {
 #main {
   grid-area: main;
 }
+#table-area td:hover {
+  background-color: var(--p-light);
+  color: var(--p-text);
+  cursor: pointer;
+}
+
+/* SLIDER */
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+/* Fading animation */
+.active {
+  animation-name: fade;
+  animation-duration: 2s;
+}
+
+/* CSS Progress Bars */
+.progress {
+  width: 100%;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  box-shadow: inset 0px 1px 3px rgba(10, 10, 10, 0.2);
+}
+.progress .progress-bar {
+  display: block;
+  float: left;
+  width: 100%;
+  background: var(--p-color);
+  box-shadow: inset 0px -1px 2px rgba(0, 0, 0, 0.1);
+  animation: animBar 3s ease-in-out forwards;
+}
 
 /* FOOTER */
 
 #footer {
   grid-area: footer;
   font-size: 1.2em;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   color: var(--p-text);
   background: var(--p-color);
+  padding: 0 10px;
+}
+#footer img {
+  max-height: 26px;
+}
+#timer-area:hover {
+  color: rgb(255, 70, 70);
+}
+
+@keyframes animBar {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @media screen and (min-width: 768px) {
   body {
-    grid-template-areas: 'header header' 'sidebar main' 'footer footer';
+    grid-template-areas: "header header" "sidebar main" "footer footer";
     grid-template-columns: 230px auto;
   }
   #sidebar ul {

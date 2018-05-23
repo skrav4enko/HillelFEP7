@@ -20,7 +20,7 @@ var cachedFunction = function (arg1, arg2) {
     }
   }
 
-  return complexFunction(arg1, arg2)
+  return complexFunction(arg1, arg2);
 };
 
 cachedFunction('foo', 'bar');
