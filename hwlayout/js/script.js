@@ -232,9 +232,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const sliderLink = document.querySelector('#slider-link');
 
-  let templateAutoSlider = `<h2>Infinite Slideshow</h2>
-    <div class="slideshow-container">
-      <div class="carousel-item active">
+  let sliderHead = `<h2>Slider</h2>`;
+  let sliderMain = `<div class="carousel-item active">
         <img class="d-block w-100" src="./img/pexels-photo-01.jpeg" alt="First slide">
       </div>
       <div class="carousel-item">
@@ -249,11 +248,32 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="carousel-item">
         <img class="w-100" src="./img/pexels-photo-05.jpeg" alt="Fifth slide">
       </div>
-    </div>`;
+    `;
+  let sliderButtons = `<a class="carousel-control-prev" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span></a>
+    <a class="carousel-control-next" data-slide="next">
+      <span class="carousel-control-next-icon"></span></a>`;
 
-  sliderLink.addEventListener('click', slider1);
 
-  function slider1(e) {
+  let templateAutoSlider = `${sliderHead}<div class="slideshow-container">${sliderMain}</div>`;
+
+  sliderLink.addEventListener('click', slider);
+
+  class Slider {
+    constructor(template, slider, auto){
+      this.auto = auto;
+      this.template = template;
+      this.slider = slider;
+    }
+    nextSlide(){
+
+    }
+    prevSlide(){
+
+    }
+  }
+
+  function slider(e) {
     e.preventDefault();
     insertContent(templateAutoSlider);
     autoSlider();
@@ -281,43 +301,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const progressLink = document.querySelector('#progress-link');
   const progress1Link = document.querySelector('#progress1-link');
 
-  let progressTemplate = `<h2>Progress on Promises</h2>
-  <div class="progress">
-      <div class="progress-bar""></div>
-    </div>
-  </div>
-  <div id="articles" class="content-articles">
-    <div class="content-article">
-      <h2 class="article-heading">Lorem</h2>
-      <div class="article-info">
-      <img class="article-image" src="./img/std/js_logo.png" alt="" />
-      <p class="article-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  let progressHeader = `<h2>Progress on Promises</h2>`;
+  let progressBar = `<div class="progress"><div class="progress-bar""></div></div>`;
+  let articleContent = `<div class="card mb-3">
+      <img class="card-img" src="./img/std/js_logo.png">
+      <div class="card-body">
+      <h3 class="card-title">Lorem</h3>
+      <p class="card-text" >Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           Donec sit amet mi pretium, efficitur nibh vitae, porta neque. Suspendisse velit odio,
           laoreet elementum placerat sed, rutrum in nulla. Nulla finibus ultricies nibh id egestas.
           Ut aliquet mollis dapibus. Nullam justo metus, eleifend semper rhoncus vitae, dignissim at tellus.</p>
       </div>
-    </div>
-    <div class="content-article">
-      <h2 class="article-heading">Lorem</h2>
-      <div class="article-info">
-      <img class="article-image" src="./img/std/js_logo.png" alt="" />
-      <p class="article-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Donec sit amet mi pretium, efficitur nibh vitae, porta neque. Suspendisse velit odio,
-          laoreet elementum placerat sed, rutrum in nulla. Nulla finibus ultricies nibh id egestas.
-          Ut aliquet mollis dapibus. Nullam justo metus, eleifend semper rhoncus vitae, dignissim at tellus.</p>
-      </div>
-    </div>
-    <div class="content-article">
-      <h2 class="article-heading">Lorem</h2>
-      <div class="article-info">
-      <img class="article-image" src="./img/std/js_logo.png" alt="" />
-      <p class="article-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Donec sit amet mi pretium, efficitur nibh vitae, porta neque. Suspendisse velit odio,
-          laoreet elementum placerat sed, rutrum in nulla. Nulla finibus ultricies nibh id egestas.
-          Ut aliquet mollis dapibus. Nullam justo metus, eleifend semper rhoncus vitae, dignissim at tellus.</p>
-      </div>
-    </div>
-  </div>`;
+    </div>`;
+
+  let progressTemplate = `${progressHeader}${progressBar}
+  ${articleContent}${articleContent}${articleContent}`;
 
   progressLink.addEventListener('click', progress);
   progress1Link.addEventListener('click', progress1);
