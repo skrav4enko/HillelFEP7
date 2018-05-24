@@ -14,15 +14,17 @@
 
 <body>
 
-  <header id="header" class="navbar">
+  <header id="header">
     <div id="clock-area" class="text-white">
     </div>
+    <div id="forecast-header"></div>
     <div id="forecast">
-      <input id="searchCity" type="text" placeholder="Weather in your city...">
-      <div id="getCity">
+      <input id="searchCity" type="text" placeholder="weather in city...">
+      <button id="getCity">
         <i class="fas fa-search"></i>
-      </div>
+      </button>
     </div>
+    
     <div id="window-size" class="text-white">
     </div>
   </header>
@@ -43,9 +45,6 @@
       </li>
       <li>
         <a id="progress1-link" href="#">Progress 1</a>
-      </li>
-      <li>
-        <a id="weather-link" href="#">Weather</a>
       </li>
     </ul>
   </aside>

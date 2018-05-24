@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const mainSection = document.querySelector('#main');
-  
+
   function clearContent() {
     while (mainSection.firstChild) {
       mainSection.removeChild(mainSection.firstChild);
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     mainSection.innerHTML = template;
   }
 
-  /* MAIN PAGE */
+  /* ---MAIN PAGE--- */
 
   const mainLink = document.querySelector('#main-link');
   mainLink.addEventListener('click', mainPage);
@@ -28,9 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
     return false;
   }
 
-  /* MAIN PAGE END */
+  /* ---MAIN PAGE END--- */
 
-  /* TABLE GENERATOR */
+  /* ---TABLE GENERATOR--- */
 
   const tableLink = document.querySelector('#table-link');
   tableLink.addEventListener('click', tableGenerator);
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <input id='column-input' type="number" class="form-control" min="0">
     </div>
     </form>
-    <button type="submit" class="btn btn-primary mb-3">Draw Table</button>
+    <button id="btnTable" class="btn btn-primary mb-3">Draw Table</button>
     <div id="table-area"></div>`;
 
   function tableGenerator(e) {
@@ -59,10 +59,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function createTable() {
-
     let inputRowNumber = document.querySelector('#row-input');
     let inputColumnNumber = document.querySelector('#column-input');
-    let btn = document.querySelector('button');
+    let btn = document.querySelector('#btnTable');
 
     btn.addEventListener('click', drawTable);
 
@@ -84,7 +83,9 @@ document.addEventListener('DOMContentLoaded', () => {
           cell.appendChild(document.createTextNode(`Cell ${cellNumber++}`));
         }
       }
-      tableArea.appendChild(table).classList.add('table', 'table-striped', 'table-bordered');
+      tableArea
+        .appendChild(table)
+        .classList.add('table', 'table-striped', 'table-bordered');
       inputRowNumber.value = '';
       inputColumnNumber.value = '';
       // console.log(document.querySelector('table'));
@@ -99,16 +100,19 @@ document.addEventListener('DOMContentLoaded', () => {
           let cell = cells[i];
           // Track with onclick
           cell.onclick = function () {
-            alert(`Index of cell is: ${this.cellIndex + 1}:${this.parentNode.rowIndex + 1}`);
+            alert(
+              `Index of cell is: ${this.cellIndex + 1}:${this.parentNode
+                .rowIndex + 1}`
+            );
           };
         }
       }
     }
   }
 
-  /* TABLE GENERATOR END */
-  
-  /* CLOCK */
+  /* ---TABLE GENERATOR END--- */
+
+  /* ---CLOCK--- */
 
   const clockArea = document.querySelector('#clock-area');
 
@@ -125,7 +129,9 @@ document.addEventListener('DOMContentLoaded', () => {
     showClock();
 
     function showClock() {
-      clockArea.innerHTML = `${format(hours)}: ${format(minutes)}: ${format(seconds)}`;
+      clockArea.innerHTML = `${format(hours)}: ${format(minutes)}: ${format(
+        seconds
+      )}`;
     }
 
     function format(number) {
@@ -136,27 +142,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  /* CLOCK END */
+  /* ---CLOCK END--- */
 
-  /* WINDOW SIZE */
+  /* ---WINDOW SIZE--- */
 
   let windowSizeArea = document.querySelector('#window-size');
   showWindowSize();
 
   function showWindowSize() {
-    windowSizeArea.innerHTML = `${window.innerWidth} x ${window.innerHeight} px`;
+    windowSizeArea.innerHTML = `${window.innerWidth} x ${
+      window.innerHeight
+    } px`;
   }
 
   window.addEventListener('resize', resize);
-  
+
   function resize() {
     clearTimeout(window.resizeEnd);
-    window.resizeEnd = setTimeout(showWindowSize, 2000); 
+    window.resizeEnd = setTimeout(showWindowSize, 2000);
   }
-  
-  /* WINDOW SIZE END */
-  
-  /* TIMER */
+
+  /* ---WINDOW SIZE END--- */
+
+  /* ---TIMER--- */
 
   const timerArea = document.querySelector('#timer-area');
 
@@ -167,7 +175,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let spentTimeID = setInterval(spentTimer, 1000);
 
   function spentTimer() {
-
     if (timerCounter > 59) {
       minutesCounter++;
       timerCounter = 0;
@@ -182,7 +189,9 @@ document.addEventListener('DOMContentLoaded', () => {
     timerCounter++;
 
     function showClock() {
-      timerArea.innerHTML = `${format(minutesCounter)}: ${format(timerCounter)}`;
+      timerArea.innerHTML = `${format(minutesCounter)}: ${format(
+        timerCounter
+      )}`;
     }
 
     function format(number) {
@@ -191,7 +200,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       return number;
     }
-
   }
 
   timerArea.addEventListener('mouseover', pauseSpentTimer);
@@ -218,9 +226,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  /* TIMER END*/
+  /* ---TIMER END--- */
 
-  /* SLIDER 1 & 2 */
+  /* ---SLIDER 1 & 2--- */
 
   const sliderLink = document.querySelector('#slider-link');
 
@@ -253,7 +261,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function autoSlider() {
-    
     let slides = document.querySelectorAll('.carousel-item');
 
     let currentSlide = 0;
@@ -267,9 +274,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  /* SLIDER 1 END */
+  /* ---SLIDER 1 END--- */
 
-  /* PROMISES 1 & 2 */
+  /* ---PROMISES 1 & 2--- */
 
   const progressLink = document.querySelector('#progress-link');
   const progress1Link = document.querySelector('#progress1-link');
@@ -322,6 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
     progressbar.addEventListener('animationend', progressClear);
     return false;
   }
+
   function progress1(e) {
     e.preventDefault();
     insertContent(progressTemplate);
@@ -338,25 +346,71 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Anim End 2');
   }
 
-  /* PROMISES 1 & 2 END*/
+  /* ---PROMISES 1 & 2 END--- */
 
-  /* AUTOCOMPLETE */
+  /* ---AUTOCOMPLETE--- */
 
-  let wbtn = document.querySelector('#getCity');
-  let city = document.querySelector('#searchCity');
-  var input = document.querySelector('#searchCity');
-  let autocomplete = new google.maps.places.Autocomplete(input);
-
-  // let gSettings = {
-  //   API_KEY: 'AIzaSyCCqmHLokHdtgKi_orDLfS0iGMcGUDGCMU'
-  // };
-
-  /* WEATHER */
-
+  let cityInput = document.querySelector('#searchCity');
+  let autocomplete = new google.maps.places.Autocomplete(cityInput);
+  // console.log(autocomplete);
   // https://maps.googleapis.com/maps/api/place/autocomplete/json?input=input&types=geocode&key=API_KEY
 
+  /* ---AUTOCOMPLETE END--- */
 
-  /* WEATHER END*/
+  /* ---WEATHER--- */
 
+  let wbtn = document.querySelector('#getCity');
+  let forecastHeader = document.querySelector('#forecast-header');
+  wbtn.addEventListener('click', getWeather);
 
+  // google.maps.event.addListener(autocomplete, 'place_changed', () => {});
+  // let apiSettings = {
+  //   api: 'https://api.darksky.net/forecast',
+  //   api_key: '1d7c5926d49fd65897f928d403fc5251',
+  //   lang: 'ru',
+  //   units: 'si',
+  //   exclude: 'minutely,hourly,daily,alerts,flags'
+  // };
+  // let { api, api_key, lang, units, exclude } = apiSettings;
+
+  let apiSettings = {
+    api: 'http://api.openweathermap.org/data/2.5/weather',
+    api_key: 'be69c9c340c7433ef933d94b2c2db766',
+    lang: 'ru',
+    units: 'metric'
+  };
+  let { api, api_key, lang, units } = apiSettings;
+
+  function getWeather(e) {
+    e.preventDefault();
+    let lat = autocomplete.getPlace().geometry.location.lat();
+    let lng = autocomplete.getPlace().geometry.location.lng();
+    // console.log(lat, lng);
+
+    let url = `${api}?lat=${lat}&lon=${lng}&lang=${lang}&units=${units}&appid=${api_key}`;
+    // console.log(url);
+
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        let templateForecastHeader = `<span>${data.name}</span><img src="http://openweathermap.org/img/w/${data.weather[0].icon}.png" title="${data.weather[0].description}"><span>${Math.round(data.main.temp)} &deg;С</span>`;
+        forecastHeader.innerHTML = templateForecastHeader;
+        cityInput.value = '';
+        console.log(data);
+      })
+      .catch(err => console.log(err));
+
+    // let url = `${api}/${api_key}/${lat},${lng}`;
+    // fetch(url, {
+    //   mode: 'no-cors',
+    //   headers: {
+    //     'Access-Control-Allow-Origin': '*'
+    //   }
+    // })
+    //   .then(res => res.json())
+    //   .then(data => console.log(data))
+    //   .catch(err => console.log(err));
+  }
+
+  /* ---WEATHER END--- */
 });
