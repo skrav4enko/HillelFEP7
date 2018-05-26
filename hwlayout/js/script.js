@@ -361,15 +361,17 @@ document.addEventListener('DOMContentLoaded', () => {
   let forecastHeader = document.querySelector('#forecast-header');
   wbtn.addEventListener('click', getWeather);
 
-  // google.maps.event.addListener(autocomplete, 'place_changed', () => {});
+  google.maps.event.addListener(autocomplete, 'place_changed', () => {});
+
   // let apiSettings = {
-  //   api: 'https://api.darksky.net/forecast',
+  //   api: 'https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast',
   //   api_key: '1d7c5926d49fd65897f928d403fc5251',
   //   lang: 'ru',
   //   units: 'si',
-  //   exclude: 'minutely,hourly,daily,alerts,flags'
+  //   exclude: 'minutely,hourly,daily,alerts,flags',
+  //   cors_hack: 'https://cors-anywhere.herokuapp.com/'
   // };
-  // let { api, api_key, lang, units, exclude } = apiSettings;
+  // let { api, api_key, lang, units, exclude, cors_hack } = apiSettings;
 
   let apiSettings = {
     api: 'http://api.openweathermap.org/data/2.5/weather',
@@ -398,13 +400,9 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       .catch(err => console.log(err));
 
-    // let url = `${api}/${api_key}/${lat},${lng}`;
-    // fetch(url, {
-    //   mode: 'no-cors',
-    //   headers: {
-    //     'Access-Control-Allow-Origin': '*'
-    //   }
-    // })
+    // let url = `${cors_hack}${api}/${api_key}/${lat},${lng}?units=${units}&lang=${lang}&exclude=${exclude}`;
+    // console.log(url);
+    // fetch(url)
     //   .then(res => res.json())
     //   .then(data => console.log(data))
     //   .catch(err => console.log(err));
