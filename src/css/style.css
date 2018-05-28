@@ -10,11 +10,20 @@
   --p-text: #fff;
 }
 
+/* roboto-regular - cyrillic_latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/roboto-regular.woff2') format('woff2'),
+  url('../fonts/roboto-regular.ttf') format('truetype'), 
+}
+
 body {
   display: grid;
   grid-template-areas: "header" "main" "sidebar" "footer";
   /* grid-gap: 10px; */
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif;
   background: #f5f5f5;
 }
 
@@ -156,8 +165,9 @@ body {
   background: var(--p-color);
   padding: 0 10px;
 }
-#footer img {
-  max-height: 26px;
+#footer a{
+  color: var(--p-text);
+  text-decoration: none;
 }
 #timer-area:hover {
   color: rgb(255, 70, 70);
