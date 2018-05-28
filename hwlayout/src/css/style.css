@@ -1,3 +1,15 @@
+
+@import url(./weather-icons.css);
+
+/* roboto-regular - cyrillic_latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/roboto-regular.woff2') format('woff2'),
+  url('../fonts/roboto-regular.ttf') format('truetype'), 
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,15 +20,6 @@
   --p-light: #63a4ff;
   --p-dark: #004ba0;
   --p-text: #fff;
-}
-
-/* roboto-regular - cyrillic_latin */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../fonts/roboto-regular.woff2') format('woff2'),
-  url('../fonts/roboto-regular.ttf') format('truetype'), 
 }
 
 body {
@@ -43,6 +46,10 @@ body {
 #forecast {
   display: flex;
   flex-wrap: wrap;
+}
+.weather-icon {
+  font-size: 1.3em;
+  text-align: center;
 }
 /* #forecast input[type=text]  */
 #searchCity {
