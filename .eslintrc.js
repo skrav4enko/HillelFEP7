@@ -1,25 +1,40 @@
 module.exports = {
     "env": {
         "browser": true,
+        "node": true,
         "es6": true
     },
-    "extends": "eslint:recommended",
+    "extends": "airbnb-base",
     "rules": {
-        "indent": [
-            "error",
-            2
-        ],
         "linebreak-style": [
             "error",
             "windows"
         ],
-        "quotes": [
-            "error",
-            "single"
+        "comma-dangle": [
+            "warn",
+            "never"
         ],
-        "semi": [
-            "error",
-            "always"
+        "prefer-const": [
+            "warn"
+        ],
+        "no-plusplus": [
+            "error", { 
+                "allowForLoopAfterthoughts": true 
+            }
+        ],
+        "no-use-before-define": [
+            "warn"
+        ],
+        "no-unused-vars": [
+            "warn", {
+                "args": "none" 
+            }
+        ],
+        "max-len": [
+            "error", {
+                "ignoreTemplateLiterals": true,
+                "ignoreComments": true 
+            }
         ]
     }
-};
+}
