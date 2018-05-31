@@ -1,69 +1,92 @@
 function Slider(insertContent) {
   const sliderLink = document.querySelector('#slider-link');
 
-  const sliderHead = '<h2>Slider</h2>';
-  const sliderMain = `<div class="carousel-item active">
+  const sliderHead1 = '<h2>Slider</h2>';
+  const sliderHead2 = '<h2>Slider with buttons</h2>';
+  const sliderMain = `
+        <div class="carousel-item active">
           <img class="d-block w-100" src="./img/pexels-photo-01.jpeg" alt="First slide">
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100" src="./img/pexels-photo-02.png" alt="Second slide">
+          <img class="w-100" src="./img/pexels-photo-02.png" alt="Second slide">
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100" src="./img/pexels-photo-03.jpeg" alt="Third slide">
+          <img class="w-100" src="./img/pexels-photo-03.jpeg" alt="Third slide">
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100" src="./img/pexels-photo-04.jpeg" alt="Fourth slide">
+          <img class="w-100" src="./img/pexels-photo-04.jpeg" alt="Fourth slide">
         </div>
         <div class="carousel-item">
           <img class="w-100" src="./img/pexels-photo-05.jpeg" alt="Fifth slide">
         </div>
       `;
-  const sliderButtons = `<a class="carousel-control-prev" data-slide="prev">
+  const sliderButtons = `<a class="carousel-control-prev" id="btnPrev">
         <span class="carousel-control-prev-icon"></span></a>
-      <a class="carousel-control-next" data-slide="next">
+      <a class="carousel-control-next" id="btnNext">
         <span class="carousel-control-next-icon"></span></a>`;
 
-
-  const templateAutoSlider = `${sliderHead}<div class="slideshow-container">${sliderMain}</div>`;
+  const templateSlider = `${sliderHead1}<div id="slider1" class="slideshow-container">${sliderMain}</div>${sliderHead2}<div id="slider2" class="slideshow-container">${sliderMain}${sliderButtons}</div>`;
 
   sliderLink.addEventListener('click', slider);
 
-  // class Slider {
-  //   constructor(template, slider, auto) {
-  //     this.auto = auto;
-  //     this.template = template;
-  //     this.slider = slider;
-  //   }
-  //   nextSlide() {
-
-  //   }
-  //   prevSlide() {
-
-  //   }
-  // }
-
   function slider(e) {
     e.preventDefault();
-    insertContent(templateAutoSlider);
-    autoSlider();
-    return false;
+    insertContent(templateSlider);
+    playSlider();
   }
 
-  function autoSlider() {
-    const slides = document.querySelectorAll('.carousel-item');
+  function playSlider() {
+    class Sliders {
+      constructor(sld) {
+        this.sld = sld;
+        this.autoplay = false;
+        this.slides = sld.querySelectorAll('.carousel-item');
+        this.currentSlide = 0;
+      }
 
-    let currentSlide = 0;
-    const slideInterval = setInterval(autoplaySlide, 3000);
-    // console.log(slides);
+      playShow() {
+        console.log('autotest');
+        this.autoplay = true;
+        const idInterval = setInterval(() => this.nextSlide(), 4000);
+      }
 
-    function autoplaySlide() {
-      slides[currentSlide].classList.remove('active');
-      currentSlide = (currentSlide + 1) % slides.length;
-      slides[currentSlide].classList.add('active');
+      nextSlide() {
+        this.slide(this.currentSlide + 1);
+      }
+
+      prevSlide() {
+        this.slide(this.currentSlide - 1);
+      }
+
+      slide(n) {
+        this.slides[this.currentSlide].classList.remove('active');
+        this.currentSlide = (this.slides.length + n) % this.slides.length;
+        this.slides[this.currentSlide].classList.add('active');
+      }
     }
-  }
 
-  /* ---SLIDER 1 END--- */
+    const slider1 = new Sliders(document.querySelector('#slider1'));
+    const slider2 = new Sliders(document.querySelector('#slider2'));
+    // console.log(slider1);
+    // console.log(slider2);
+
+    // console.log(slider1.playShow);
+    slider1.playShow();
+
+    const btnNext = document.querySelector('#btnNext');
+    const btnPrev = document.querySelector('#btnPrev');
+    // console.log(btnNext);
+    // console.log(btnPrev);
+
+    btnNext.addEventListener('click', () => {
+      console.log('test');
+      slider2.nextSlide();
+    });
+    btnPrev.addEventListener('click', () => {
+      console.log('test');
+      slider2.prevSlide();
+    });
+  }
 }
 
 export default Slider;
