@@ -25,47 +25,45 @@
       <form id="form">
         <div class="form-row">
           <div class="form-group col-md-4">
-            <label for="name">Name</label>
-            <input type="text" name="name" id="name" class="form-control" placeholder="Name">
+            <label for="nameInput">Name</label>
+            <input type="text" name="nameInput" id="nameInput" class="form-control" placeholder="Name">
           </div>
           <div class="form-group col-md-4">
-            <label for="lastName">Last Name</label>
-            <input type="text" name="lastName" id="lastName" class="form-control" placeholder="Last Name">
+            <label for="lastNameInput">Last Name</label>
+            <input type="text" name="lastNameInput" id="lastNameInput" class="form-control" placeholder="Last Name">
           </div>
           <div class="form-group col-md-2">
-            <label for="age">Age</label>
-            <input type="number" name="age" id="age" class="form-control" min="0">
+            <label for="ageInput">Age</label>
+            <input type="number" name="ageInput" id="ageInput" class="form-control" min="0">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-4">
-            <label for="university">University</label>
-            <input type="text" name="university" id="university" class="form-control" placeholder="Harvard University">
+            <label for="universityInput">University</label>
+            <input type="text" name="universityInput" id="universityInput" class="form-control" placeholder="Harvard University">
           </div>
           <div class="form-group col-md-4">
-            <label for="website">Website</label>
-            <input type="url" name="website" id="website" class="form-control" placeholder="https://harvard.edu/">
+            <label for="websiteInput">Website</label>
+            <input type="url" name="websiteInput" id="websiteInput" class="form-control" placeholder="https://harvard.edu/">
           </div>
         </div>
         <div class="row">
           <div class="col-md-4">
-            <button type="submit" class="btn btn-primary">Add</button>
-            <button type="reset" class="btn">Cancel</button>
+            <button id="add" type="button" class="btn btn-primary">Add</button>
+            <button id="cancel" type="button" class="btn">Cancel</button>
           </div>
           <div class="col-md-4">
-            <fieldset disabled="disabled">
-              <button type="button" class="btn">Get</button>
-              <button type="button" class="btn">Save</button>
-              <button type="button" class="btn">Clear</button>
-            </fieldset>
+            <button id="get" type="button" class="btn">Get</button>
+            <button id="save" type="button" class="btn">Save</button>
+            <button id="clear" type="button" class="btn">Clear</button>
           </div>
         </div>
 
       </form>
     </section>
 
-    <main id="table-area" class="mb-3">
-      <table class="table table-hover table-sm">
+    <main class="mb-3">
+      <table id="table-area" class="table table-hover table-sm">
         <thead>
           <tr>
             <th>#</th>
@@ -73,11 +71,12 @@
             <th>Last Name</th>
             <th>Age</th>
             <th>University</th>
-            <th>Edit | Delete</th>
+            <th>Edit</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <!-- <tr>
             <td>1</td>
             <td>Mark</td>
             <td>Otto</td>
@@ -86,7 +85,9 @@
               <a href="http://harvard.edu">Harvard</a>
             </td>
             <td>
-              <i class="far fa-edit"></i> |
+              <i class="far fa-edit"></i>
+            </td>
+            <td>
               <i class="far fa-trash-alt"></i>
             </td>
           </tr>
@@ -99,7 +100,9 @@
               <a href="http://mit.edu">MIT</a>
             </td>
             <td>
-              <i class="far fa-edit"></i> |
+              <i class="far fa-edit"></i>
+            </td>
+            <td>
               <i class="far fa-trash-alt"></i>
             </td>
           </tr>
@@ -112,7 +115,9 @@
               <a href="http://oxford.edu">Oxford</a>
             </td>
             <td>
-              <i class="far fa-edit"></i> |
+              <i class="far fa-edit"></i>
+            </td>
+            <td>
               <i class="far fa-trash-alt"></i>
             </td>
           </tr>
@@ -125,10 +130,12 @@
               <a href="http://berkeley.edu">Berkeley</a>
             </td>
             <td>
-              <i class="far fa-edit"></i> |
+              <i class="far fa-edit"></i>
+            </td>
+            <td>
               <i class="far fa-trash-alt"></i>
             </td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
     </main>
