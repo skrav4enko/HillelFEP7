@@ -1,27 +1,30 @@
 $(document).ready(function() {
+  const uuid = uuidv4;
+  let count = counter();
   class Student {
-    constructor(name, lastName, age, university, website) {
+    constructor(id, name, age, university, website, phone) {
+      this.id = id;
       this.name = name;
-      this.lastName = lastName;
       this.age = age;
       this.university = university;
       this.website = website;
+      this.phone = phone;
     }
   }
 
   let students = [];
 
-  let tbody = $('#table-area tbody');
-  let editIcon = '<i class="far fa-edit"></i>';
-  let deleteIcon = '<i class="far fa-trash-alt"></i>';
+  const tbody = $('#table-area tbody');
+  const editIcon = '<i class="far fa-edit"></i>';
+  const deleteIcon = '<i class="far fa-trash-alt"></i>';
 
-  $('#form button#add').click(addStudent);
-  $('#form button#cancel').click(resetForm);
-  $('#form button#get').click(getStudent);
-  $('#form button#save').click(saveTable);
-  $('#form button#clear').click(clearTable);
+  $('#form').on('submit', addStudent);
+  $('button#cancel').on('click', resetForm);
+  $('button#get').on('click', getStudent);
+  $('button#save').on('click', saveTable);
+  $('button#clear').on('click', clearTable);
 
-  $('#table-area th').click(sortTable);
+  $('#table-area th').on('click', sortTable);
 
   function load() {
     if (localStorage.students) {
@@ -30,17 +33,19 @@ $(document).ready(function() {
         addRowTable(students[i]);
       }
     }
-  }
+  };
   load();
 
-  function addStudent() {
+  function addStudent(event) {
+    event.preventDefault();
     let student = new Student();
 
+    student.id = uuid();
     student.name = $('#form #nameInput').val();
-    student.lastName = $('#form #lastNameInput').val();
     student.age = $('#form #ageInput').val();
     student.university = $('#form #universityInput').val();
     student.website = $('#form #websiteInput').val();
+    student.phone = $('#form #phoneInput').val();
 
     students.push(student);
     addRowTable(student);
@@ -50,14 +55,14 @@ $(document).ready(function() {
     resetForm();
   }
 
-  function addRowTable({ name, lastName, age, university, website }) {
+  function addRowTable({ id, name, age, university, website, phone }) {
     let rowTemplate = `
-    <tr>
-      <td>id</td>
+    <tr id="${id}">
+      <td>${count()}</td>
       <td>${name}</td>
-      <td>${lastName}</td>
       <td>${age}</td>
       <td><a href="${website}">${university}</a></td>
+      <td>${phone}</td>
       <td>${editIcon}</td>
       <td>${deleteIcon}</td>
     </tr>`;
@@ -79,13 +84,21 @@ $(document).ready(function() {
   }
 
   function editStudent() {}
+
   function deleteStudent() {}
+
+  function counter(){
+    let count = 1;
+    return function () {
+      return count++;
+    }
+  }
 
   function sortTable() {
     let table = $(this)
       .parents('table')
       .eq(0);
-    if ($(this).index() == 5) {
+    if ($(this).index() >= 5) {
       return 0;
     }
     let rows = table
