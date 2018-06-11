@@ -8,7 +8,6 @@ function GetForecast() {
   // https://maps.googleapis.com/maps/api/place/autocomplete/json?input=input&types=geocode&key=API_KEY
 
   /* ---WEATHER--- */
-  
 
   const wbtn = document.querySelector('#getCity');
   const forecastHeader = document.querySelector('#forecast-header');
@@ -25,7 +24,7 @@ function GetForecast() {
     if (localStorage.cityInfo) {
       cityInfo = JSON.parse(localStorage.getItem('cityInfo'));
       console.log(cityInfo);
-      fetchWeatherData();
+      fetchWeatherData(cityInfo);
     } else {
       forecastHeader.innerHTML =
       `Узнать погоду <i class="far fa-hand-point-right"></i>`;

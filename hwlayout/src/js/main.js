@@ -4,10 +4,11 @@ import WinSize from './winsize';
 import Slider from './slider';
 import Progress from './progress';
 import GetForecast from './weather';
+import StudentsTable from './students';
 
 function Main() {
   document.addEventListener('DOMContentLoaded', () => {
-    const mainSection = document.querySelector('#main');
+    const mainSection = document.querySelector('#content');
 
     function clearContent() {
       while (mainSection.firstChild) {
@@ -54,9 +55,10 @@ function Main() {
     /* ---PROMISES 1 & 2--- */
     Progress(insertContent);
 
+    // StudentsTable(insertContent);
+
     /* ---WEATHER--- */
     GetForecast();
-
   });
 }
 
